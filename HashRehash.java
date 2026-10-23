@@ -23,8 +23,7 @@ public class HashRehash {
 
     public boolean inserir(int elemento) {
         if (ocupacao >= tamanho * 90 / 100) {
-            return false;
-        }
+            return false;}
         int posicao = hash(elemento);
         int contador = 0;
 
@@ -61,7 +60,7 @@ public class HashRehash {
         int[] top = new int[3];
         boolean[] escolhido = new boolean[tamanho];
 
-        for (int k = 0; k < 3; k++) {
+        for (int j = 0; j < 3; j++) {
             int melhor = -1;
             for (int i = 0; i < tamanho; i++) {
                 if (tabela[i] != -1 && !escolhido[i]) {
@@ -71,15 +70,15 @@ public class HashRehash {
                 }
             }
             escolhido[melhor] = true;
-            top[k] = melhor;
+            top[j] = melhor;
         }
         System.out.println("Tres elementos que mais colidiram:");
-        for (int k = 0; k < 3; k++) {
-            System.out.println(tabela[top[k]] + " - " + colisoes[top[k]] + " colisoes");
+        for (int j = 0; j < 3; j++) {
+            System.out.println(tabela[top[j]] + " - " + colisoes[top[j]] + " colisoes");
         }
         System.out.println("Teste de busca:");
-        for (int k = 0; k < 3; k++) {
-            System.out.println(tabela[top[k]] + ": " + buscar(tabela[top[k]]));
+        for (int j = 0; j < 3; j++) {
+            System.out.println(tabela[top[j]] + ": " + buscar(tabela[top[j]]));
         }
     }
     public static void main(String[] args) {
@@ -89,7 +88,6 @@ public class HashRehash {
             int valor = random.nextInt(100001);
             hash.inserir(valor);
         }
-
         hash.imprimirResultados();
     }
 }
